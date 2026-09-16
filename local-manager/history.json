@@ -1,0 +1,104 @@
+{
+  "last_model": "/home/tjhexa/development/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf",
+  "last_mode": "web",
+  "launches": [
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Bonsai-27B-GGUF/Bonsai-27B-Q1_0.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gemma-4-12B-it-GGUF/gemma-4-12B-it-Q4_K_M.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gpt-oss-20b-MXFP4.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Bonsai-27B-GGUF/Bonsai-27B-Q1_0.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Bonsai-27B-GGUF/Bonsai-27B-Q1_0.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/LFM2.5-1.2B-Instruct-Q8_0.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Bonsai-27B-GGUF/Bonsai-27B-Q1_0.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Bonsai-27B-GGUF/Bonsai-27B-Q1_0.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/LFM2.5-1.2B-Instruct-Q8_0.gguf",
+      "mode": "cli",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gpt-oss-20b-MXFP4.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    }
+  ]
+}

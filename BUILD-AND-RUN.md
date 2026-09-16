@@ -292,6 +292,12 @@ Quantization tip:
 
 ## 9. Run with `run-gpt-oss-server.sh`
 
+For a fuller interactive launcher (scan all models, show RAM/VRAM + context length, choose **web** or **cli**), use [`local-manager/`](local-manager/README.md):
+
+```bash
+cd local-manager && ./run
+```
+
 Helper script in the repo root: [`run-gpt-oss-server.sh`](run-gpt-oss-server.sh).
 
 ### 9.1 What the script does
