@@ -1,7 +1,42 @@
 {
-  "last_model": "/home/tjhexa/development/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf",
+  "last_model": "/home/tjhexa/development/llama.cpp/models/gpt-oss-20b-MXFP4.gguf",
   "last_mode": "web",
   "launches": [
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gpt-oss-20b-MXFP4.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/gemma4-v2-Q6_K.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Qwopus3.5-9B-coder-Exp-Q8_0.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Qwopus3.5-9B-coder-Exp-Q8_0.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Qwopus3.5-9B-coder-Exp-Q8_0.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
     {
       "model": "/home/tjhexa/development/llama.cpp/models/gemma-4-E4B-it-Q4_K_M.gguf",
       "mode": "web",
