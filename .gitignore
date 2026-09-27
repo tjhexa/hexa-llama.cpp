@@ -140,6 +140,7 @@ flake.lock
 /run-vim.sh
 /run-chat.sh
 /run-spec.sh
+/.run-llama.defaults
 /.ccache/
 
 # IDE
