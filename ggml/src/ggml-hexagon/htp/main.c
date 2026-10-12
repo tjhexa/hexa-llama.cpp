@@ -851,6 +851,8 @@ static int execute_op(struct htp_ops_context * octx) {
         case HTP_OP_UNARY_SIGMOID:
         case HTP_OP_UNARY_SILU:
         case HTP_OP_UNARY_GELU:
+        case HTP_OP_UNARY_GELU_QUICK:
+        case HTP_OP_UNARY_GELU_ERF:
         case HTP_OP_UNARY_NEG:
         case HTP_OP_UNARY_EXP:
         case HTP_OP_UNARY_TANH:
@@ -866,6 +868,7 @@ static int execute_op(struct htp_ops_context * octx) {
         case HTP_OP_GLU_SWIGLU_CLAMP:
         case HTP_OP_GLU_GEGLU:
         case HTP_OP_GLU_GEGLU_QUICK:
+        case HTP_OP_GLU_GEGLU_ERF:
             return op_activations(octx);
 
         case HTP_OP_SOFTMAX:
@@ -926,8 +929,17 @@ static int execute_op(struct htp_ops_context * octx) {
         case HTP_OP_IM2COL:
             return op_im2col(octx);
 
+        case HTP_OP_IM2COL_3D:
+            return op_im2col_3d(octx);
+
         case HTP_OP_ROLL:
             return op_roll(octx);
+
+        case HTP_OP_POOL_2D:
+            return op_pool_2d(octx);
+
+        case HTP_OP_POOL_1D:
+            return op_pool_1d(octx);
 
         case HTP_OP_CONCAT:
             return op_concat(octx);
