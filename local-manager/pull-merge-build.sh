@@ -62,8 +62,11 @@ if [ "$CLEAN" = 1 ]; then
 fi
 
 echo "==> configure CUDA build (arch $CUDA_ARCH)"
+# -U drops stale cache entries from the old WEBUI->UI rename, so cmake stops
+# printing the LLAMA_BUILD_WEBUI deprecation warning on reconfigure
 cmake -B "$BUILD_DIR" -DGGML_CUDA=ON -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_CUDA_ARCHITECTURES="$CUDA_ARCH"
+  -DCMAKE_CUDA_ARCHITECTURES="$CUDA_ARCH" \
+  -U LLAMA_BUILD_WEBUI -U LLAMA_USE_PREBUILT_WEBUI -U LLAMA_WEBUI_HF_BUCKET
 
 echo "==> build (-j$JOBS)"
 cmake --build "$BUILD_DIR" --config Release -j"$JOBS"
