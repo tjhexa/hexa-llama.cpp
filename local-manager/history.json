@@ -1,7 +1,14 @@
 {
-  "last_model": "/home/tjhexa/development/llama.cpp/models/gpt-oss-20b-MXFP4.gguf",
+  "last_model": "/home/tjhexa/development/llama.cpp/models/Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp.gguf",
   "last_mode": "web",
   "launches": [
+    {
+      "model": "/home/tjhexa/development/llama.cpp/models/Qwen3.8-27B-GSQ-RCO-IQ3_S-mtp.gguf",
+      "mode": "web",
+      "port": 9898,
+      "ngl": 99,
+      "ctx": 0
+    },
     {
       "model": "/home/tjhexa/development/llama.cpp/models/gpt-oss-20b-MXFP4.gguf",
       "mode": "web",
