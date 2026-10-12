@@ -1,0 +1,16 @@
+{
+  "models_dir": "/home/tjhexa/development/llama.cpp/models",
+  "bin_dir": "/home/tjhexa/development/llama.cpp/llama.cpp/build/bin",
+  "server_bin": "llama-server",
+  "cli_bin": "llama-completion",
+  "default_port": 9898,
+  "default_host": "127.0.0.1",
+  "default_ngl": 99,
+  "default_ctx": 0,
+  "open_browser": true,
+  "api_key": "",
+  "alias": "",
+  "extra_server_args": [],
+  "extra_cli_args": [],
+  "skip_mmproj": false
+}

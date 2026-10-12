@@ -1,0 +1,18 @@
+# Machine-local state for local-manager-ui.
+# Keep the code and config.example.json tracked; ignore real config + history.
+
+/config.json
+/history.json
+
+# Local config overrides that may contain machine-specific paths or secrets.
+/config.*.json
+!config.example.json
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editors
+*.swp
+*.tmp
+.DS_Store
