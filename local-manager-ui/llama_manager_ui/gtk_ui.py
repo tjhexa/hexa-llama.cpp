@@ -202,7 +202,6 @@ class MainWindow(Gtk.ApplicationWindow):
 
         self.refresh_models()
         self.refresh_git()
-        self._tick_idle_scan()
         self.show_all()
         self.nb.set_current_page(0)
 
@@ -289,6 +288,8 @@ class MainWindow(Gtk.ApplicationWindow):
         self.set_status(f"{len(self._models)} models", "")
         if not self._models:
             self.models_view.show_empty(str(models_dir))
+        GLib.idle_add(self._tick_idle_scan)
+
     def _tick_idle_scan(self) -> bool:
         """Lazily read GGUF headers a few at a time so the UI stays instant."""
         if self.app.ai < len(self._models):
@@ -498,20 +499,29 @@ class ModelsView(Gtk.Box):
         scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         scroll.set_vexpand(True)
         scroll.add(self.tree)
-        self.pack_start(scroll, True, True, 0)
 
-        details = Gtk.Frame(label="Model details")
+        details_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+        details_head = Gtk.Label(label="Model details", xalign=0.0)
+        details_head.get_style_context().add_class("dim-label")
+        details_box.pack_start(details_head, False, False, 0)
         self.detail_buf = Gtk.TextBuffer()
         self.detail = Gtk.TextView(buffer=self.detail_buf)
         self.detail.set_editable(False)
+        self.detail.set_cursor_visible(False)
         self.detail.set_monospace(True)
         self.detail.override_font(_mono())
-        self.detail.set_size_request(-1, 150)
+        self.detail.set_wrap_mode(Gtk.WrapMode.NONE)
         dscroll = Gtk.ScrolledWindow()
         dscroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         dscroll.add(self.detail)
-        details.add(dscroll)
-        self.pack_start(details, False, False, 0)
+        self._detail_scroll = dscroll
+        details_box.pack_start(dscroll, True, True, 0)
+
+        list_pane = Gtk.Paned(orientation=Gtk.Orientation.VERTICAL)
+        list_pane.pack1(scroll, resize=True, shrink=False)
+        list_pane.pack2(details_box, resize=False, shrink=False)
+        self._list_pane = list_pane
+        self.pack_start(list_pane, True, True, 0)
 
         actions = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
         load_btn = Gtk.Button(label="Load into Server tab")
@@ -556,8 +566,16 @@ class ModelsView(Gtk.Box):
         if self._selected_model is model:
             self._show_details(model)
 
+    def _fit_details_height(self) -> None:
+        """Size the details view to its text so nothing is ever clipped."""
+        layout = self.detail.create_pango_layout("Xg")
+        _, lh = layout.get_pixel_size()
+        lines = max(1, self.detail_buf.get_line_count())
+        self._detail_scroll.set_min_content_height(lh * lines + 12)
+
     def show_empty(self, models_dir: str) -> None:
         self.detail_buf.set_text(f"No .gguf files found under:\n  {models_dir}\n\nSet models_dir in the Settings tab.")
+        self._fit_details_height()
 
     def _selected_model_by_path(self, path: str) -> core.ModelRef | None:
         for m in self._models:
@@ -590,6 +608,7 @@ class ModelsView(Gtk.Box):
         info = getattr(model, "_info", None)
         if info is None:
             self.detail_buf.set_text("Reading GGUF metadata...")
+            self._fit_details_height()
             return
         lines = [
             f"name        : {info.display_name}",
@@ -609,6 +628,7 @@ class ModelsView(Gtk.Box):
         if info.error:
             lines.append(f"error       : {info.error}")
         self.detail_buf.set_text("\n".join(lines))
+        self._fit_details_height()
 
     # -- actions ---------------------------------------------------------
 
